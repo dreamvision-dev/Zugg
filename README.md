@@ -1,14 +1,16 @@
 # Zugg - Ultimate Pro Edition
 
+[**PLAY NOW**](https://dreamvision-dev.github.io/Zugg/)
+
 <p align="center">
-  <img src="assets/zugg_logo.png" alt="Zugg Logo" width="200">
+  <img src="assets/zugg_logo.png" alt="Zugg Logo" width="600">
 </p>
 
 > A voice-controlled, retro-terminal chess app for the modern power user.
 
 ## About The Project
 
-**Zugg** is a high-performance, single-screen chess application designed for hands-free play and multitasking. It combines a nostalgic CRT terminal aesthetic with cutting-edge Web Speech API technology.
+**Zugg** is a high-performance, single-screen chess application designed for hands-free play and multitasking. It combines a nostalgic CRT terminal aesthetic with cutting-edge Web Speech API technology. Created by **Mehmet T. AKALIN**.
 
 **Ultimate Pro Features:**
 *   **Hybrid Control:** Play using **Voice Commands** ("Zugg, e4") or **Mouse Click-to-Move**.
