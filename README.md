@@ -1,86 +1,60 @@
-# Zugg
+# Zugg - Ultimate Pro Edition
 
 <p align="center">
-  <img src="https://github.com/dreamvision-dev/Zugg/blob/main/assets/zugg_logo.png?raw=true" alt="Zugg Logo - A pixelated rook next to a pixelated 'Z'">
+  <img src="assets/zugg_logo.png" alt="Zugg Logo" width="200">
 </p>
 
-> A voice-controlled, retro-terminal chess app.
+> A voice-controlled, retro-terminal chess app for the modern power user.
 
 ## About The Project
 
-**Zugg** (from *Zugzwang*) is a minimalist, single-screen chess application designed for hands-free play. It runs entirely in the browser, using a retro CRT terminal aesthetic and the Web Speech API to accept voice commands.
+**Zugg** is a high-performance, single-screen chess application designed for hands-free play and multitasking. It combines a nostalgic CRT terminal aesthetic with cutting-edge Web Speech API technology.
 
-This project was built for a specific use-case: playing a quick game of chess against the computer while working on another task (or another computer), without needing to touch the mouse or keyboard.
+**Ultimate Pro Features:**
+*   **Hybrid Control:** Play using **Voice Commands** ("Zugg, e4") or **Mouse Click-to-Move**.
+*   **Visual Settings:** Customize Themes (Green, Amber, Blue, Red), Difficulty, and Game Modes.
+*   **Chess Clock:** Integrated countdown timers for Blitz, Rapid, and Classical games.
+*   **Smart TTS:** The app speaks moves back to you ("Knight to f3"), allowing for eyes-free play.
+*   **Robust AI:** Powered by Stockfish (via Web Worker) with adjustable skill levels (1-20).
 
-**Short Description:** Zugg is a voice-controlled chess app for hands-free play. Featuring a retro CRT terminal aesthetic, it runs entirely in your browser. Use the wake word "Zugg" followed by your move (e.g., "Zugg, pawn e4") to play against a powerful AI opponent. Perfect for multitasking. Built with JavaScript, the Web Speech API, and Stockfish.
+## How to Play
 
-### Features
-* ⌨️ **Retro Terminal UI:** A single-screen, no-scroll interface styled like a classic green-screen or amber terminal.
-* 🎤 **Voice-Only Control:** Play the entire game using the "Zugg" wake word.
-* 🤖 **Powerful AI Opponent:** Powered by `stockfish.js`, with adjustable difficulty.
-* ♟️ **Full Chess Logic:** All standard chess rules are enforced via `chess.js`.
-* 🔊 **Audio/Visual Feedback:** The terminal responds to your commands and indicates move status, checks, and checkmates.
+### 1. Voice Control
+The app listens for the wake word **"Zugg"** (or aliases like "Zac Brown", "Doug", "Doc").
+*   **Move:** "Zugg, pawn to e4", "Zugg, knight takes f3", "Zugg, castle kingside".
+*   **Commands:** "Zugg, new game", "Zugg, undo", "Zugg, export game".
+
+### 2. Mouse Control
+*   **Click-to-Move:** Click a piece to select it (highlighted), then click a destination square.
+*   **Visual Hints:** Valid moves are illuminated on the board.
+
+### 3. Settings Menu
+Click **[ SETTINGS ]** to configure:
+*   **Theme:** Phosphor Green, Amber Glow, Cyber Blue, Critical Red.
+*   **Difficulty:** AI Level 1-20.
+*   **Game Mode:** Human vs AI, Human vs Human.
+*   **Side:** Play as White or Black.
+*   **Time Control:** 5m, 10m, 30m, or None.
+*   **Speak Moves:** Toggle Text-to-Speech confirmation (On/Off).
 
 ## Tech Stack
-
-* **Frontend:** Vanilla HTML, CSS & JavaScript
-* **Chess Logic:** [chess.js](https://github.com/jhlywa/chess.js)
-* **Chess AI:** [stockfish.js (WASM)](https://github.com/niklasf/stockfish.js)
-* **Voice Input:** [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
-
-## How to Play: Voice Commands
-
-The app is always listening for its wake word: **"Zugg"**.
-
-To issue a command, simply say "Zugg" followed by your instruction.
-
-### Basic Commands
-* **"Zugg, new game"**: Starts a new game.
-* **"Zugg, set difficulty 5"**: Sets the AI's thinking depth.
-* **"Zugg, undo move"**: Takes back the last move (yours and the AI's).
-
-### Making Moves
-The speech recognition will try to parse standard moves. For best results, speak clearly.
-
-* **Coordinate Notation (Recommended):**
-    * "Zugg, e2 to e4"
-    * "Zugg, g1 to f3"
-* **Algebraic Notation (More advanced):**
-    * "Zugg, pawn e4"
-    * "Zugg, knight f3"
-* **Castling:**
-    * "Zugg, castle kingside"
-* **Promotion:**
-    * "Zugg, e7 to e8, Queen"
-
-The application will provide text feedback in the terminal log, such as `> INVALID MOVE: e2 to e5` or `> OK. Computer is thinking...`.
+*   **Frontend:** Vanilla HTML5, CSS3 (Grid/Flexbox), JavaScript (ES6+)
+*   **Chess Logic:** `chess.js`
+*   **AI Engine:** `stockfish.js` (WebAssembly/Worker)
+*   **Voice:** Web Speech API (SpeechRecognition & SpeechSynthesis)
 
 ## Running Locally
+No build step required. Serve with any static file server:
 
-This project requires no build step. You just need a local server to serve the files (which is necessary for the `stockfish.js` WASM module).
+```sh
+# Python
+python3 -m http.server 8080
 
-1.  **Clone the repo:**
-    ```sh
-    git clone [https://github.com/dreamvision-dev/Zugg.git](https://github.com/dreamvision-dev/Zugg.git)
-    cd Zugg
-    ```
+# Node.js
+npx http-server
+```
 
-2.  **Download Dependencies:**
-    * Download `chess.js` and `stockfish.js` from their repositories and place them in a `lib/` folder.
-
-3.  **Run a local server:**
-    If you have Node.js, you can use `http-server`:
-    ```sh
-    npx http-server
-    ```
-    Or, if you have Python:
-    ```sh
-    python -m http.server
-    ```
-
-4.  **Open the app:**
-    Open your browser (Chrome-based recommended for best Speech API support) and go to `http://localhost:8080`.
+Open `http://localhost:8080` in Chrome (recommended for best speech support).
 
 ## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License.
